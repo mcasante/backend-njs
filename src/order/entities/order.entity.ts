@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Seller } from '../../seller/entities/seller.entity';
 
 @Entity()
 export class Order {
@@ -8,8 +9,8 @@ export class Order {
   @Column()
   product: string;
 
-  @Column()
-  seller: number;
+  @ManyToOne(() => Seller, (seller) => seller.orders)
+  seller: Seller;
 
   @Column()
   country: string;
