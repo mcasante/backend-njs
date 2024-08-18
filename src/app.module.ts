@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { OrderModule } from './order/order.module';
 import { SellerModule } from './seller/seller.module';
+import { SeedModule } from './seed/seed.module';
 
 @Module({
   imports: [
@@ -17,11 +18,12 @@ import { SellerModule } from './seller/seller.module';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      autoLoadEntities: true,
       synchronize: process.env.NODE_ENV === 'development',
     }),
     OrderModule,
     SellerModule,
+    SeedModule,
   ],
   controllers: [],
   providers: [],
