@@ -20,8 +20,4 @@ export class SellerService {
       .groupBy('seller.id')
       .getRawMany();
   }
-
-  findOne(id: number) {
-    return this.sellerRepository.findOneBy({ id });
-  }
 }
