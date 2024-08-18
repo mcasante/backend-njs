@@ -14,8 +14,9 @@ export class OrderService {
   async findAll(
     query: ListOrdersDTO,
   ): Promise<{ data: Order[]; total: number; page: number; limit: number }> {
-    const sortBy =
-      query.sort === 'seller' ? 'seller.name' : `order.${query.sort}`;
+    const sortBy = query.sort.includes('.')
+      ? query.sort
+      : `order.${query.sort}`;
 
     const [data, total] = await this.orderRepository
       .createQueryBuilder('order')

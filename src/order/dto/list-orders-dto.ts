@@ -5,7 +5,7 @@ const sortOrder = ['ASC', 'DESC'] as const;
 const sortFields = [
   'orderId',
   'product',
-  'seller',
+  'seller.name',
   'country',
   'price',
 ] as const;
