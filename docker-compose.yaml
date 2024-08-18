@@ -5,7 +5,7 @@ services:
     tty: true
     init: true
     volumes:
-      - ./:/app
+      - ./:/home/app
     depends_on:
       - db
     links:
