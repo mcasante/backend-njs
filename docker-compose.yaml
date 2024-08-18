@@ -1,0 +1,25 @@
+services:
+  app:
+    build: .
+    container_name: ${APP_NAME}
+    tty: true
+    init: true
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+  db:
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: ${DB_NAME}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
