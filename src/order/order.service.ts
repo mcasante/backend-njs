@@ -11,16 +11,25 @@ export class OrderService {
     private orderRepository: Repository<Order>,
   ) {}
 
-  async findAll(
-    query: ListOrdersDTO,
-  ): Promise<{ data: Order[]; total: number; page: number; limit: number }> {
+  async findAll(query: ListOrdersDTO): Promise<{
+    data: Order[];
+    total: number;
+    page: number;
+    limit: number;
+  }> {
     const sortBy = query.sort.includes('.')
       ? query.sort
       : `order.${query.sort}`;
 
-    const [data, total] = await this.orderRepository
+    const qb = this.orderRepository
       .createQueryBuilder('order')
-      .leftJoinAndSelect('order.seller', 'seller')
+      .leftJoinAndSelect('order.seller', 'seller');
+
+    if (query.sellerId) {
+      qb.where('seller.id = :sellerId', { sellerId: query.sellerId });
+    }
+
+    const [data, total] = await qb
       .orderBy(sortBy, query.order)
       .take(query.limit)
       .skip((query.page - 1) * query.limit)

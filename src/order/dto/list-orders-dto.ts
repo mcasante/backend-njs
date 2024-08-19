@@ -28,4 +28,9 @@ export class ListOrdersDTO {
   @IsOptional()
   @IsIn(sortOrder)
   order: (typeof sortOrder)[number] = 'ASC';
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  sellerId: number;
 }
