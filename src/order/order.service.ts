@@ -25,8 +25,8 @@ export class OrderService {
       .createQueryBuilder('order')
       .leftJoinAndSelect('order.seller', 'seller');
 
-    if (query.sellerId) {
-      qb.where('seller.id = :sellerId', { sellerId: query.sellerId });
+    if (query.sellerIds && query.sellerIds.length > 0) {
+      qb.where('seller.id IN (:...sellerIds)', { sellerIds: query.sellerIds });
     }
 
     const [data, total] = await qb

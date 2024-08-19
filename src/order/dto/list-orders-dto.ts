@@ -1,4 +1,10 @@
-import { IsInt, IsOptional, IsIn } from 'class-validator';
+import {
+  IsInt,
+  IsOptional,
+  IsIn,
+  IsArray,
+  ArrayMinSize,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 
 const sortOrder = ['ASC', 'DESC'] as const;
@@ -30,7 +36,9 @@ export class ListOrdersDTO {
   order: (typeof sortOrder)[number] = 'ASC';
 
   @IsOptional()
+  @IsArray()
+  @ArrayMinSize(1)
   @Type(() => Number)
-  @IsInt()
-  sellerId: number;
+  @IsInt({ each: true })
+  sellerIds?: number[];
 }
