@@ -19,11 +19,11 @@ A backend application built with NestJS, TypeScript, and MySQL, using Docker for
 # Copy the .env.example to .env
 $ cp .env.example .env
 
-# Start container & install dependencies
-$ make up
+# Install dependencies
+$ pnpm install # or npm install
 
-# Stop container
-$ make down
+# Start container
+$ make up
 ```
 
 ## Running the app
@@ -48,6 +48,9 @@ make test-cov
 ## Other Make Commands
 
 ```bash
+# Stop container
+$ make down
+
 # Format code
 make format
 
