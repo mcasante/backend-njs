@@ -72,13 +72,15 @@ GET /api/sellers
 GET /api/orders
 ```
 
-| Parameter   | Type     | Description                                                  | Default     |
-| :---------- | :------- | :----------------------------------------------------------- | :---------- |
-| `page`      | `number` | Page number for pagination.                                  | `1`         |
-| `limit`     | `number` | Number of orders per page.                                   | `10`        |
-| `sort`      | `string` | Field to sort by (e.g., `date`, `price`).                    | `orderId`   |
-| `order`     | `string` | Sort order, either `asc` (ascending) or `desc` (descending). | `asc`       |
-| `sellerIds` | `string` | Comma-separated list of seller IDs to filter by.             | `undefined` |
+| Parameter   | Type         | Description                                                  | Default     |
+| :---------- | :----------- | :----------------------------------------------------------- | :---------- |
+| `page`      | `number`     | Page number for pagination.                                  | `1`         |
+| `limit`     | `number`     | Number of orders per page.                                   | `10`        |
+| `sort`      | `SortFields` | Field to sort by                                             | `orderId`   |
+| `order`     | `string`     | Sort order, either `asc` (ascending) or `desc` (descending). | `asc`       |
+| `sellerIds` | `string`     | Comma-separated list of seller IDs to filter by.             | `undefined` |
+
+`SortFields`: `orderId`, `product`, `seller.name`, `country`, `price`.
 
 ## Test Coverage
 
