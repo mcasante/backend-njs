@@ -1,1 +1,1 @@
-export * from './list-orders-dto';
+export * from './list-orders.dto';
