@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { OrderController } from './order.controller';
 import { OrderService } from './order.service';
-import { ListOrdersDTO } from './dto';
+import { ListOrdersDTO } from './dto/list-orders.dto';
 import { Order } from './entities/order.entity';
 
 describe('OrderController', () => {

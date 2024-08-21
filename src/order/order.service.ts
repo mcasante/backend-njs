@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Order } from './entities/order.entity';
-import { ListOrdersDTO } from './dto';
+import { ListOrdersDTO } from './dto/list-orders.dto';
 
 @Injectable()
 export class OrderService {

@@ -65,8 +65,6 @@ All files              |     100 |      100 |     100 |     100 |
  order                 |     100 |      100 |     100 |     100 |
   order.controller.ts  |     100 |      100 |     100 |     100 |
   order.service.ts     |     100 |      100 |     100 |     100 |
- order/dto             |     100 |      100 |     100 |     100 |
-  index.ts             |     100 |      100 |     100 |     100 |
  seed                  |     100 |      100 |     100 |     100 |
   seed.service.ts      |     100 |      100 |     100 |     100 |
  seller                |     100 |      100 |     100 |     100 |
