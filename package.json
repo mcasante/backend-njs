@@ -1,8 +1,8 @@
 {
   "name": "backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "A backend application built with NestJS, TypeScript, and MySQL, using Docker for containerization and Makefile for task automation.",
+  "author": "Matheus Casante",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
